@@ -8,7 +8,8 @@ RIP4=172.16.0.4
 case "$1" in
 
 start)
-    echo "Start LVS of Director Server"
+    echo "Start lvs of nat mode."
+
     # set vip address
     echo "1" > /proc/sys/net/ipv4/ip_forward
     /usr/sbin/iptables -F
@@ -28,7 +29,7 @@ start)
     ;;
 
 stop)
-    echo "Close LVS Diretor Server"
+    echo "Stop lvs of nat mode."
     echo "0" > /proc/sys/net/ipv4/ip_forward
     /usr/sbin/ipvsadm -C
     /usr/sbin/ifconfig eth0:0 down

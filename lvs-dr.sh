@@ -10,7 +10,7 @@ RIP4=172.16.0.4
 
 case "$1" in
 start)
-    echo "Start LVS of Director Server."
+    echo "Start lvs of dr mode."
 
     # set vip address
     /usr/sbin/ifconfig eth0:0 $VIP broadcast $VIP netmask 255.255.255.255 up
@@ -29,7 +29,7 @@ start)
     /usr/sbin/ipvsadm
     ;;
 stop)
-    echo "Close LVS Director Server."
+    echo "Stop lvs of dr mode."
     echo "0" > /proc/sys/net/ipv4/ip_forward
     /usr/sbin/ipvsadm -C
     /usr/sbin/ifconfig eth0:0 down
